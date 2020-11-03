@@ -54,7 +54,7 @@ body {
 
 .impressum {
     position: absolute;
-    bottom: -27%;
+    bottom: -65%;
     left: 43.5%;
     margin-bottom: 15px;
     opacity: 54%;
@@ -209,7 +209,7 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: rgba(0, 128, 128, 0.3);
+    /* background-color: rgba(0, 128, 128, 0.3); */
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -218,8 +218,9 @@ body {
 }
 
 .initials {
-    color: teal;
+    /* color: teal; */
     font-size: 30px;
+    opacity: 1;
 }
 
 .name {

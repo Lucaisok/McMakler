@@ -1,4 +1,5 @@
 import React from "react";
+import Applicants from "./applicants";
 
 export default function OuterDiv() {
     return (
@@ -31,6 +32,7 @@ export default function OuterDiv() {
                     </div>
                 </div>
             </div>
+            <Applicants />
         </div>
     );
 }

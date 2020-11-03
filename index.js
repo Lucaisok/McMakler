@@ -1,9 +1,16 @@
 const express = require("express");
 const app = express();
-const server = require("http").Server(app);
 const compression = require("compression");
+// const csurf = require("csurf");
 
 app.use(express.json());
+
+// app.use(csurf());
+
+// app.use(function (req, res, next) {
+//     res.cookie("mytoken", req.csrfToken());
+//     next();
+// });
 
 app.use(compression());
 
@@ -24,6 +31,6 @@ app.get("*", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-server.listen(8080, function () {
+app.listen(8080, function () {
     console.log("McMakler server listening.");
 });

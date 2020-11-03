@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Applicants() {
+    const [applicants, setApplicants] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch("apllicants.json");
+            const data = await response.json();
+            console.log("data from json", data);
+            setApplicants(data);
+        })();
+    });
+
     return (
         <div>
             <div className="inputSection">
@@ -32,9 +43,6 @@ export default function Applicants() {
                         <p>APPOINTMENT 22 JULY 14:00</p>
                     </div>
                 </div>
-                {/* <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div> */}
             </div>
             <p id="viewed" className="appointment">
                 Property viewed (5)
@@ -54,10 +62,6 @@ export default function Applicants() {
                         <p className="bidP">BID 250.000€</p>
                     </div>
                 </div>
-                {/* <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div> */}
             </div>
         </div>
     );

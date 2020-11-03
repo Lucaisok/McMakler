@@ -22,7 +22,7 @@ body {
 .rightHeader {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     margin-right: 20px;
 }
 

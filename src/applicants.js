@@ -3,11 +3,14 @@ import React, { useState, useEffect } from "react";
 export default function Applicants() {
     const [applicants, setApplicants] = useState([]);
     const [error, setError] = useState(false);
+    const [searched, setSearched] = useState(" ");
+    const [visible, setVisible] = useState(true);
+    const [match, setMatch] = useState([]);
+    const [matched, setMatched] = useState(false);
 
     useEffect(() => {
         (async () => {
             const response = await fetch("./apllicants.json");
-            console.log("response", response);
             if (response.status !== 200) {
                 setError(true);
             }
@@ -44,6 +47,27 @@ export default function Applicants() {
 
     var RandomColor = random_rgba();
 
+    const handleChange = (e) => {
+        if (e.target.value != "") {
+            setSearched(e.target.value);
+            console.log(searched);
+            setVisible(false);
+            let searchedUser = applicants.filter((el) => {
+                return (
+                    el.name.toLowerCase().startsWith(searched) ||
+                    el.surname.toLowerCase().startsWith(searched) ||
+                    el.email.toLowerCase().startsWith(searched)
+                );
+            });
+            setMatch(searchedUser);
+            setMatched(true);
+        } else if (e.target.value == "") {
+            setSearched(" ");
+            setVisible(true);
+            setMatched(false);
+        }
+    };
+
     return (
         <div>
             <div className="innerDiv">
@@ -77,6 +101,7 @@ export default function Applicants() {
                 </div>
                 <div className="inputSection">
                     <input
+                        onChange={handleChange}
                         className="inputField"
                         placeholder="    Search for applicant"
                     ></input>
@@ -96,57 +121,166 @@ export default function Applicants() {
                         An error occured loading data, please try again
                     </p>
                 )}
-                <p className="appointment">
-                    Appointment set ({applicantsWithApp.length})
-                </p>
-                <div className="cardsSection">
-                    {applicants.map((person, idx) => {
-                        if (person.status == "appointment") {
-                            return (
-                                <div key={idx}>
-                                    <div className="card">
-                                        <div
-                                            style={{
-                                                backgroundColor: RandomColor,
-                                            }}
-                                            className="ellipse"
-                                        >
-                                            <p
-                                                style={{
-                                                    color: RandomColor,
-                                                }}
-                                                className="initials"
-                                            >
-                                                {person.name
-                                                    .charAt(0)
-                                                    .toUpperCase() +
-                                                    person.surname
-                                                        .charAt(0)
-                                                        .toUpperCase()}
-                                            </p>
+                {visible && (
+                    <div>
+                        <p className="appointment">
+                            Appointment set ({applicantsWithApp.length})
+                        </p>
+                        <div className="cardsSection">
+                            {applicants.map((person, idx) => {
+                                if (person.status == "appointment") {
+                                    return (
+                                        <div key={idx}>
+                                            <div className="card">
+                                                <div
+                                                    style={{
+                                                        backgroundColor: RandomColor,
+                                                    }}
+                                                    className="ellipse"
+                                                >
+                                                    <p
+                                                        style={{
+                                                            color: RandomColor,
+                                                        }}
+                                                        className="initials"
+                                                    >
+                                                        {person.name
+                                                            .charAt(0)
+                                                            .toUpperCase() +
+                                                            person.surname
+                                                                .charAt(0)
+                                                                .toUpperCase()}
+                                                    </p>
+                                                </div>
+                                                <p className="name">
+                                                    {person.name +
+                                                        " " +
+                                                        person.surname}
+                                                </p>
+                                                <p className="telNumber">
+                                                    {person.number}
+                                                </p>
+                                                <p className="email">
+                                                    {person.email}
+                                                </p>
+                                                <div className="appo">
+                                                    <p>
+                                                        APPOINTMENT 22 JULY
+                                                        14:00
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p className="name">
-                                            {person.name + " " + person.surname}
-                                        </p>
-                                        <p className="telNumber">
-                                            {person.number}
-                                        </p>
-                                        <p className="email">{person.email}</p>
-                                        <div className="appo">
-                                            <p>APPOINTMENT 22 JULY 14:00</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })}
-                </div>
-                <p id="viewed" className="appointment">
-                    Property viewed ({applicantsViewed.length})
-                </p>
-                <div className="cardsSection">
-                    {applicants.map((person, idx) => {
-                        if (person.status == "viewed") {
+                                    );
+                                }
+                            })}
+                        </div>
+                        <p id="viewed" className="appointment">
+                            Property viewed ({applicantsViewed.length})
+                        </p>
+                        <div className="cardsSection">
+                            {applicants.map((person, idx) => {
+                                if (person.status == "viewed") {
+                                    if (person.bid !== " ") {
+                                        return (
+                                            <div key={idx}>
+                                                <div className="card">
+                                                    <div
+                                                        style={{
+                                                            backgroundColor: RandomColor,
+                                                        }}
+                                                        className="ellipse"
+                                                    >
+                                                        <p
+                                                            style={{
+                                                                color: RandomColor,
+                                                            }}
+                                                            className="initials"
+                                                        >
+                                                            {person.name
+                                                                .charAt(0)
+                                                                .toUpperCase() +
+                                                                person.surname
+                                                                    .charAt(0)
+                                                                    .toUpperCase()}
+                                                        </p>
+                                                    </div>
+                                                    <p className="name">
+                                                        {person.name +
+                                                            " " +
+                                                            person.surname}
+                                                    </p>
+                                                    <p className="telNumber">
+                                                        {person.number}
+                                                    </p>
+                                                    <p className="email">
+                                                        {person.email}
+                                                    </p>
+                                                    <div className="appo">
+                                                        <p>
+                                                            VIEWED 11 JUNE 19:00
+                                                        </p>
+                                                    </div>
+                                                    <div className="bid">
+                                                        <p className="bidP">
+                                                            {person.bid}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    } else {
+                                        return (
+                                            <div key={idx}>
+                                                <div className="card">
+                                                    <div
+                                                        style={{
+                                                            backgroundColor: RandomColor,
+                                                        }}
+                                                        className="ellipse"
+                                                    >
+                                                        <p
+                                                            style={{
+                                                                color: RandomColor,
+                                                            }}
+                                                            className="initials"
+                                                        >
+                                                            {person.name
+                                                                .charAt(0)
+                                                                .toUpperCase() +
+                                                                person.surname
+                                                                    .charAt(0)
+                                                                    .toUpperCase()}
+                                                        </p>
+                                                    </div>
+                                                    <p className="name">
+                                                        {person.name +
+                                                            " " +
+                                                            person.surname}
+                                                    </p>
+                                                    <p className="telNumber">
+                                                        {person.number}
+                                                    </p>
+                                                    <p className="email">
+                                                        {person.email}
+                                                    </p>
+                                                    <div className="appo">
+                                                        <p>
+                                                            VIEWED 11 JUNE 19:00
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    }
+                                }
+                            })}
+                        </div>
+                    </div>
+                )}
+                {matched && (
+                    <div>
+                        {match.map((person, idx) => {
                             if (person.bid !== " ") {
                                 return (
                                     <div key={idx}>
@@ -235,9 +369,9 @@ export default function Applicants() {
                                     </div>
                                 );
                             }
-                        }
-                    })}
-                </div>
+                        })}
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import OuterDiv from "./outerDiv";
-import InnerDiv from "./innerDiv";
+import Applicants from "./applicants";
 
 export default function App() {
     return (
         <BrowserRouter>
             <OuterDiv />
-            <InnerDiv />
+            <Applicants />
         </BrowserRouter>
     );
 }

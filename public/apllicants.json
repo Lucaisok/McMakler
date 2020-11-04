@@ -4,55 +4,63 @@
         "surname": "Tomarelli",
         "number": "+49 827 276 28826",
         "email": "lucatomarelli1@gmail.com",
-        "status": "appointment"
+        "status": "appointment",
+        "bid": " "
     },
     {
         "name": "Kateryna",
         "surname": "Gonchar",
         "number": "+49 736 905 83654",
         "email": "katerynagonchar@gmail.com",
-        "status": "appointment"
+        "status": "appointment",
+        "bid": " "
     },
     {
         "name": "Vasili",
         "surname": "Vasilivic",
         "number": "+49 928 485 28475",
         "email": "vasilivasili@gmail.com",
-        "status": "appointment"
+        "status": "appointment",
+        "bid": " "
     },
     {
         "name": "Edgar",
         "surname": "Poe",
         "number": "+49 837 173 84757",
         "email": "edgarallanpoe@gmail.com",
-        "status": "viewed"
+        "status": "viewed",
+        "bid": "BID 250.000€"
     },
     {
         "name": "Mike",
         "surname": "Dunn",
         "number": "+49 745 294 38475",
         "email": "mikedunnnumberone@gmail.com",
-        "status": "viewed"
+        "status": "viewed",
+        "bid": "BID 250.000€"
     },
     {
         "name": "Felix",
         "surname": "Bonn",
         "number": "+49 748 294 94756",
         "email": "felixfrombonn@gmail.com",
-        "status": "viewed"
+        "status": "viewed",
+        "bid": "BID 250.000€"
     },
     {
         "name": "Cristina",
         "surname": "Sanchez",
         "number": "+49 837 384 38384",
         "email": "sanchezcristina@gmail.com",
-        "status": "viewed"
+        "status": "viewed",
+        "bid": "BID 250.000€"
     },
     {
         "name": "Lara",
         "surname": "Thompson",
         "number": "+49 732 940 29485",
         "email": "larathompson@gmail.com",
-        "status": "viewed"
+        "status": "viewed",
+        "bid": " "
     }
 ]

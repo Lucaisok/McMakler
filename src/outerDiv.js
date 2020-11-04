@@ -1,4 +1,5 @@
 import React from "react";
+import Applicants from "./applicants";
 
 export default function outerDiv() {
     return (
@@ -26,6 +27,7 @@ export default function outerDiv() {
                     </div>
                 </div>
             </div>
+            <Applicants />
             <img className="impressum" src="images/agb.svg"></img>
         </div>
     );

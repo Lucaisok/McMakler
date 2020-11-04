@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function Applicants() {
     const [applicants, setApplicants] = useState([]);
     const [error, setError] = useState(false);
-    const [searched, setSearched] = useState("");
+    const [searched, setSearched] = useState(" ");
     const [visible, setVisible] = useState(true);
     const [match, setMatch] = useState([]);
     const [matched, setMatched] = useState(false);

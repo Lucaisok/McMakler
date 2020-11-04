@@ -137,6 +137,10 @@ body {
     align-items: center;
 }
 
+#mobileSelectors {
+    display: none;
+}
+
 .inputField {
     background-image: url("./images/search.svg");
     background-repeat: no-repeat;
@@ -170,7 +174,7 @@ body {
     appearance: none;
 }
 
-#secondSelector {
+.second {
     width: 85px;
     margin-left: 5px;
 }
@@ -306,4 +310,91 @@ body {
 .error {
     color: red;
     font-size: 25px;
+}
+
+#log,
+#hamb {
+    display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 890px) {
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .header {
+        margin-top: 10px;
+    }
+
+    #support,
+    #man,
+    #on,
+    #leftHeader {
+        display: none;
+    }
+
+    .innerDiv {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #log,
+    #hamb {
+        display: inline;
+    }
+
+    #hamb {
+        margin-left: 20px;
+    }
+
+    .impressum {
+        display: none;
+    }
+
+    .rightSubHeader {
+        display: none;
+    }
+
+    .inputSection {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .inputField {
+        width: 75%;
+    }
+
+    #selector,
+    #secondSelector {
+        display: none;
+    }
+
+    #mobileSelectors {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 5px;
+    }
+
+    #mobileSelectors select {
+        min-width: 100px;
+        margin-right: -5px;
+        margin-top: 10px;
+    }
+
+    .cardsSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        overflow-x: scroll;
+    }
+
+    .card {
+        width: 350px;
+    }
 }

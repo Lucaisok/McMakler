@@ -105,16 +105,28 @@ export default function Applicants() {
                         className="inputField"
                         placeholder="    Search for applicant"
                     ></input>
-                    <select className="selector" placeholder="Bid">
+                    <select
+                        id="selector"
+                        className="selector"
+                        placeholder="Bid"
+                    >
                         <option value="0">Bids</option>
                     </select>
                     <select
                         id="secondSelector"
-                        className="selector"
+                        className="selector second"
                         placeholder="Status"
                     >
                         <option value="0">Status</option>
                     </select>
+                    <div id="mobileSelectors">
+                        <select className="selector" placeholder="Bid">
+                            <option value="0">Bids</option>
+                        </select>
+                        <select className="selector" placeholder="Status">
+                            <option value="0">Status</option>
+                        </select>
+                    </div>
                 </div>
                 {error && (
                     <p className="error">

@@ -5,15 +5,21 @@ export default function outerDiv() {
     return (
         <div className="outerDiv">
             <div className="header">
-                <div className="leftHeader">
+                <div id="leftHeader" className="leftHeader">
                     <img
                         className="hamburgerMenu"
                         src="images/Vector.svg"
                     ></img>
                     <img src="images/logo.svg"></img>
                 </div>
+                <img
+                    id="hamb"
+                    className="hamburgerMenu"
+                    src="images/Vector.svg"
+                ></img>
+                <img id="log" src="images/logo.svg"></img>
                 <div className="rightHeader">
-                    <div className="support">
+                    <div id="support" className="support">
                         <img
                             className="headPhones"
                             src="images/headPhones.svg"
@@ -22,8 +28,8 @@ export default function outerDiv() {
                     </div>
                     <div className="rightIcons">
                         <img src="images/active.svg"></img>
-                        <img src="images/ic-user.svg"></img>
-                        <img src="images/power.svg"></img>
+                        <img id="man" src="images/ic-user.svg"></img>
+                        <img id="on" src="images/power.svg"></img>
                     </div>
                 </div>
             </div>

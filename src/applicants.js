@@ -200,7 +200,7 @@ export default function Applicants() {
                         <div className="cardsSection">
                             {applicants.map((person, idx) => {
                                 if (person.status == "viewed") {
-                                    if (person.bid !== "") {
+                                    if (person.bid !== " ") {
                                         return (
                                             <div key={idx}>
                                                 <div className="card">

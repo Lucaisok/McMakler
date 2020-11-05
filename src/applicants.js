@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 export default function Applicants() {
     const [applicants, setApplicants] = useState([]);
     const [error, setError] = useState(false);
-    const [searched, setSearched] = useState(" ");
+    const [searched, setSearched] = useState("");
     const [visible, setVisible] = useState(true);
     const [match, setMatch] = useState([]);
     const [matched, setMatched] = useState(false);
 
     useEffect(() => {
         (async () => {
-            const response = await fetch("./apllicants.json");
+            const response = await fetch("./apllicants.json"); // here I fetch data from the JSON file
             if (response.status !== 200) {
                 setError(true);
             }
@@ -21,14 +21,17 @@ export default function Applicants() {
     }, []);
 
     let applicantsWithApp = applicants.filter(function (el) {
+        // filtering applicants array to get applicants with appointment
         return el.status == "appointment";
     });
 
     let applicantsViewed = applicants.filter(function (el) {
+        //and those who already viewed the property
         return el.status == "viewed";
     });
 
     function random_rgba() {
+        // function to get random rgba colors for cards
         var o = Math.round,
             r = Math.random,
             s = 255;
@@ -48,6 +51,7 @@ export default function Applicants() {
     var RandomColor = random_rgba();
 
     const handleChange = (e) => {
+        // here I handle the change in the input field and check for a match in the applicants array
         if (e.target.value != "") {
             setSearched(e.target.value);
             console.log(searched);
@@ -59,6 +63,7 @@ export default function Applicants() {
                     el.email.toLowerCase().startsWith(searched)
                 );
             });
+            console.log(searchedUser);
             setMatch(searchedUser);
             setMatched(true);
         } else if (e.target.value == "") {
@@ -133,6 +138,7 @@ export default function Applicants() {
                         An error occured loading data, please try again
                     </p>
                 )}
+                {/* loop in the applicants with appointment array */}
                 {visible && (
                     <div>
                         <p className="appointment">
@@ -187,13 +193,14 @@ export default function Applicants() {
                                 }
                             })}
                         </div>
+                        {/* looping in the applicants who viewed, first those with a bid, then the others without a bid */}
                         <p id="viewed" className="appointment">
                             Property viewed ({applicantsViewed.length})
                         </p>
                         <div className="cardsSection">
                             {applicants.map((person, idx) => {
                                 if (person.status == "viewed") {
-                                    if (person.bid !== " ") {
+                                    if (person.bid !== "") {
                                         return (
                                             <div key={idx}>
                                                 <div className="card">
@@ -290,6 +297,7 @@ export default function Applicants() {
                         </div>
                     </div>
                 )}
+                {/* here I loop in the array of the applicants that matches with the input field value */}
                 {matched && (
                     <div>
                         {match.map((person, idx) => {

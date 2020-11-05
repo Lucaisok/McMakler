@@ -22,7 +22,7 @@ export default function outerDiv() {
                     <div id="support" className="support">
                         <img
                             className="headPhones"
-                            src="images/headPhones.svg"
+                            src="images/headphones.svg"
                         ></img>
                         <p>Contact Support</p>
                     </div>
